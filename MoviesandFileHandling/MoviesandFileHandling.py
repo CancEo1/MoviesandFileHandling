@@ -18,17 +18,19 @@ def read_movies():
             movies.append(line)
     return movies
 
+# Function to list, add, and delete movies from the txt file
 def list_movies(movies):
     for i, movie in enumerate(movies, start=1):
         print(f"{i}. {movie}")
     print()
 
+# Accept input from the user and add titles to the document
 def add_movie(movies):
     movie = input("Enter the movie title: ")
     movies.append(movie)
     write_movies(movies)
     print(f"{movie} was added.\n")
-
+# Function to delete a movie from the list
 def delete_movie(movies):
     index = int(input("Number: "))
     if index < 1 or index > len(movies):
@@ -38,6 +40,7 @@ def delete_movie(movies):
         write_movies(movies)
         print(f"{movie} was deleted.\n")
 
+# Command menu to display how the program works
 def display_menu():
     print("The Movie List program")
     print()
@@ -50,6 +53,7 @@ def display_menu():
 
 def main():
     display_menu()
+    # Added before anything else to ensure the file is read first
     movies = read_movies()
     while True:
         command = input("Command: ")
